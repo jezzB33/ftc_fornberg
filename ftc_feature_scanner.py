@@ -52,7 +52,8 @@ def ftc_recast_weights(nodes, x_star):
         for xj in nodes:
             dx = xj - x_star
             row.append((dx**k) / k)
-        A.append(1.0 if k == 1 else 0.0)
+        A.append(row)
+        b.append(1.0 if k == 1 else 0.0)
     return _gauss_solve(A, b)
 
 # --- SCANNER ENGINE ---
